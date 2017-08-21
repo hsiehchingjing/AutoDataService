@@ -1,12 +1,29 @@
 package hayaa.dataservice.dataserver;
 
+import java.util.Hashtable;
+import java.util.Map.Entry;
+
 import hayaa.dataservice.config.DefineTable;
 import hayaa.dataservice.model.*;
 
 
 
 public class SqlHelper {
-	String GetSql(CommonQuery queryInfo,String sqlTemplate) {
+	
+	public String GetInsertSql(Hashtable<String, String> pamaters,String sqlTemplate) {
+		StringBuffer columns=new StringBuffer();
+		StringBuffer values=new StringBuffer();
+		for(Entry<String, String> entry:pamaters.entrySet()) {
+			columns.append(entry.getKey()+",");
+			values.append(entry.getValue()+",");
+		}
+		sqlTemplate=sqlTemplate.replace(DefineTable.SqlTmpTag_Column, columns.substring(columns.length(), 
+				columns.length()-2));
+		sqlTemplate=sqlTemplate.replace(DefineTable.SqlTmpTag_ColumnValue, values.substring(values.length(),
+				values.length()-2));
+		return sqlTemplate;
+	}
+ public	String GetQuerySql(CommonQuery queryInfo,String sqlTemplate) {
 		if(queryInfo==null)
 			return "queryInfo is null";
 		StringBuilder sql=new StringBuilder();
@@ -15,7 +32,7 @@ public class SqlHelper {
 		for(int i=0;i<queryInfo.Columns.length;i++) {
 			strColumn.append(queryInfo.Columns[i].Key+",");
 		}
-		sqlTemplate.replace(DefineTable.SqlTmpTag_Column, strColumn.substring(0, strColumn.length()-1));
+		sqlTemplate.replace(DefineTable.SqlTmpTag_Column, strColumn.substring(0, strColumn.length()-2));
 		//置换过滤条件		
 		sqlTemplate=sqlTemplate.replace(DefineTable.SqlTmpTag_Filter,getFilter(queryInfo.Filter));		
 		//置换分组
@@ -32,7 +49,7 @@ public class SqlHelper {
 		for(int i=0;i<orderBys.length;i++) {
 			str.append(orderBys[i].OrderColumn+" "+orderBys[i].OrderDirection.getValue()+",");
 		}
-		return str.substring(0, str.length()-1);
+		return str.substring(0, str.length()-2);
 	}
 
 	private String getFilter(FilterItem[] filter) {
