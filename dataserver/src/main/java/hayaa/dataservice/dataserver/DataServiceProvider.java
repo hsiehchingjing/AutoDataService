@@ -5,12 +5,12 @@ import hayaa.dataservice.model.*;
 
 public class DataServiceProvider implements IDataServiceProvider{
 
-	public DataResult CallService(CommonQuery queryInfo) {
+	public DataResult QueryService(CommonQuery queryInfo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Column[] GetQueryMetaData(MetaDataQuery metaDataQuery) {
+	public MetaDataResult GetQueryMetaData(MetaDataQuery metaDataQuery) {
 		// TODO Auto-generated method stub
 		return null;
 	}

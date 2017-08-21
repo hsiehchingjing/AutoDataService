@@ -1,13 +1,13 @@
 package hayaa.dataservice.model;
 
 public enum OrderDirection {
-	Asc(0),//升序
-	Desc(1);//降序 
-	private int g_value;	 
-    private OrderDirection(int value) {
+	Asc("asc"),//升序
+	Desc("desc");//降序 
+	private String g_value;	 
+    private OrderDirection(String value) {
         this.g_value = value;
     } 
-    public int getValue() {
+    public String getValue() {
         return g_value;
     }
 }
