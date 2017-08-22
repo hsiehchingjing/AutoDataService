@@ -1,12 +1,15 @@
 package hayaa.dataservice.dataserver;
 
+import hayaa.dataservice.dataaccess.DataServiceDal;
 import hayaa.dataservice.model.*;
 
 
 public class DataServiceProvider implements IDataServiceProvider{
 
-	public DataResult QueryService(CommonQuery queryInfo) {
-		// TODO Auto-generated method stub
+	public DataResult QueryService(CommonQuery queryInfo,String actionName) {
+		String sqlTmpl=DataServiceDal.GetSqlTemlate(actionName);
+		String sql=SqlHelper.GetQuerySql(queryInfo, sqlTmpl);
+		
 		return null;
 	}
 

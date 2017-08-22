@@ -10,7 +10,7 @@ import hayaa.dataservice.model.*;
 
 public class SqlHelper {
 	
-	public String GetInsertSql(Hashtable<String, String> pamaters,String sqlTemplate) {
+	public static String GetInsertSql(Hashtable<String, String> pamaters,String sqlTemplate) {
 		StringBuffer columns=new StringBuffer();
 		StringBuffer values=new StringBuffer();
 		for(Entry<String, String> entry:pamaters.entrySet()) {
@@ -23,7 +23,7 @@ public class SqlHelper {
 				values.length()-2));
 		return sqlTemplate;
 	}
- public	String GetQuerySql(CommonQuery queryInfo,String sqlTemplate) {
+ public static	String GetQuerySql(CommonQuery queryInfo,String sqlTemplate) {
 		if(queryInfo==null)
 			return "queryInfo is null";
 		StringBuilder sql=new StringBuilder();
@@ -42,7 +42,7 @@ public class SqlHelper {
 		return sql.toString();
 	}
 
-	private String getOrderBy(OrderBy[] orderBys) {
+	private static String getOrderBy(OrderBy[] orderBys) {
 		if(orderBys==null)
 			return "";
 		StringBuffer str=new StringBuffer();
@@ -52,7 +52,7 @@ public class SqlHelper {
 		return str.substring(0, str.length()-2);
 	}
 
-	private String getFilter(FilterItem[] filter) {
+	private static String getFilter(FilterItem[] filter) {
 		if(filter==null)
 			return "";
 		StringBuffer str=new StringBuffer();
