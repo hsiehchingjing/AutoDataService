@@ -22,17 +22,21 @@ public class DataAccessDal {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
-	}
-	public ReturnResult execute(String sql,String connectionString,String user,String pwd) {
-		 try {
+	}	
+	public ReturnResult insert(String sql,String connectionString,String user,String pwd) {
+		ReturnResult r=new ReturnResult(); 
+		r.ActionResult=false;
+		try {
 			 Connection conn = DriverManager.getConnection(connectionString, user, pwd);
 			 Statement statement = conn.createStatement();  
 		    ResultSet rs = statement.executeQuery(sql);  
+		     r.DataJson=rs.getString(0);
+		     r.ActionResult=true;
 		 } catch (SQLException e) {
-				// TODO Auto-generated catch block
+				r.Messsage=e.getMessage();
 				e.printStackTrace();
 			}  
-		   return null;
+		   return r;
 	}
  	public DataResult query(String sql,String connectionString,String user,String pwd) {
 			DataResult r=new DataResult();

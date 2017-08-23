@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hayaa.dataservice.model.SqldataserviceMapper">
+    <select id="selectByActionName" parameterType="varchar" resultType="Sqldataservice">
+        select * from SqlDataService where ActionName=#{ActionName} and IsDelete=0 and Status=1
+    </select>
+      
+</mapper>

@@ -7,8 +7,8 @@ import hayaa.dataservice.model.*;
 public class DataServiceProvider implements IDataServiceProvider{
 
 	public DataResult QueryService(CommonQuery queryInfo,String actionName) {
-		String sqlTmpl=DataServiceDal.GetSqlTemlate(actionName);
-		String sql=SqlHelper.GetQuerySql(queryInfo, sqlTmpl);
+		Sqldataservice sqlTmpl=DataServiceDal.GetSqldataservice(actionName);
+		String sql=SqlHelper.GetQuerySql(queryInfo, sqlTmpl.getDataScript());
 		
 		return null;
 	}
