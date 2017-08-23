@@ -5,8 +5,5 @@
     <select id="selectByActionName" parameterType="varchar" resultType="Sqldataservice">
         select * from SqlDataService where ActionName=#{ActionName} and IsDelete=0 and Status=1
     </select>
-    <select id="selectByResourceID" parameterType="int" resultType="Sqldataservice">
-       select s.* from SqlDataService s inner join Rel_Resource_DataService r on s.DataServiceID=r.DataServiceID
- and s.IsDelete=0 and s.Status=1 where r.ResourceID=#{ResourceID}
-    </select>
+      
 </mapper>
