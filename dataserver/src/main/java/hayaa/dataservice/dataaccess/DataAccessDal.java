@@ -17,12 +17,13 @@ public class DataAccessDal {
 	}
 	private DataAccessDal() {
 		 try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
 	}	
+	
 	public ReturnResult insert(String sql,String connectionString,String user,String pwd) {
 		ReturnResult r=new ReturnResult(); 
 		r.ActionResult=false;

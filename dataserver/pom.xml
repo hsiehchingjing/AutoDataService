@@ -24,16 +24,23 @@
     	<groupId>mysql</groupId>
     	<artifactId>mysql-connector-java</artifactId>
     	<version>6.0.6</version>
-    </dependency>  
-     <dependency>
-    	<groupId>org.mybatis</groupId>
-    	<artifactId>mybatis</artifactId>
-    	<version>3.4.5</version>
-    </dependency>
+    </dependency>      
     <dependency>
     	<groupId>org.codehaus.jackson</groupId>
     	<artifactId>jackson-mapper-asl</artifactId>
     	<version>1.9.13</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils -->
+	<dependency>
+	    <groupId>commons-dbutils</groupId>
+	    <artifactId>commons-dbutils</artifactId>
+	    <version>1.7</version>
+	</dependency>	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.6</version>
 	</dependency>
   </dependencies>
   <build>

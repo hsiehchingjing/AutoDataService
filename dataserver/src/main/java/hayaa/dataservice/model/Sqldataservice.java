@@ -183,9 +183,30 @@ public class Sqldataservice {
     }
     private String actionname;
     public  void setActionName(String value) {
-		this.datascript=value;
+		this.actionname=value;
 	}
     public String getActionName() {
-    	return this.datascript;
+    	return this.actionname;
+    }
+    private String databaseconnection;
+    public  void setDatabaseConnection(String value) {
+		this.databaseconnection=value;
+	}
+    public String getDatabaseConnection() {
+    	return this.databaseconnection;
+    }
+    private String databaseuser;
+    public  void setDatabaseUser(String value) {
+		this.databaseuser=value;
+	}
+    public String getDatabaseUser() {
+    	return this.databaseuser;
+    }
+    private String databasepwd;
+    public  void setDatabasePwd(String value) {
+		this.databasepwd=value;
+	}
+    public String getDatabasePwd() {
+    	return this.databasepwd;
     }
 }
