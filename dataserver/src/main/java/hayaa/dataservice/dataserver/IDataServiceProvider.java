@@ -4,7 +4,7 @@ import hayaa.dataservice.model.*;
 
 
 public interface IDataServiceProvider {
-	DataResult QueryService(CommonQuery queryInfo,String actionName);
-	MetaDataResult GetQueryMetaData(MetaDataQuery metaDataQuery);
+	public DataResult QueryService(CommonQuery queryInfo,String actionName);
+	public MetaDataResult GetQueryMetaData(MetaDataQuery metaDataQuery);
 
 }
